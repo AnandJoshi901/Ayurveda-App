@@ -40,7 +40,7 @@ function App() {
 <HeaderComponent />
         <Routes>
 
-        <Route path="/" exact element={<HomeComponent />}></Route>
+          <Route path='/'  element={<HomeComponent />}></Route>
 
           <Route path='/HomePage' element={<HomePage/>}/>
           <Route path='/listCustomer' element={<ListCustomerComponent/>}/>

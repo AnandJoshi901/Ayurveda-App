@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Link,useNavigate} from 'react-router-dom';
 
-function Login() {
+function HomeComponent() {
   const [unameval, setunameval] = useState("");
   const [passval, setpassval] = useState("");
   const navigate = useNavigate();
@@ -46,4 +46,4 @@ function Login() {
 
 }
 
-export default Login;
+export default HomeComponent;
