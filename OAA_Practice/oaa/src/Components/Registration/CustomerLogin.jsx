@@ -162,7 +162,3 @@ function CustomerLogin() {
 }
 export default CustomerLogin;
 
-
-
-{/* <Link to={`/HomePage/`} ><button style={{marginLeft: "10px"}} className="btn btn-secondary">Login</button></Link>
-<Link to={`/CustomerRegister`} ><button style={{marginLeft: "10px"}} className="btn btn-secondary">Register</button></Link> */}
