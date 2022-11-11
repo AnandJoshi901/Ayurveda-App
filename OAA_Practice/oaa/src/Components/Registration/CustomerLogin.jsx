@@ -5,32 +5,28 @@ function CustomerLogin() {
   const [unameval, setunameval] = useState("");
   const [passval, setpassval] = useState("");
   const navigate = useNavigate();
-  const [defaultuser, setUser] = useState("Admin");
-  const [defaultpwd, setPwd] = useState("Admin@123");
-
-  function CustomerLogin() {
-    let isLogged = checkIfUserIsValid();
-    if (isLogged) {
-      console.log("Login Successful");
-      navigate("/HomePage");
-    } else {
-      //navigate("/Failure");
-      console.log("Something went wrong");
-    }
-  }
 
 
+  // function CustomerLogin() {
+  //   let isLogged = checkIfUserIsValid();
+  //   if (isLogged) {
+  //     console.log("Login Successful");
+  //     navigate("/HomePage");
+  //   } else {
+  //     //navigate("/Failure");
+  //     console.log("Something went wrong");
+  //   }
+  // }
 
+  // function checkIfUserIsValid() {
+  //   const requestBody = {
+  //     username: unameval,
+  //     password: passval,
+  //   };
 
-  function checkIfUserIsValid() {
-    const requestBody = {
-      username: unameval,
-      password: passval,
-    };
-
-    if (unameval === defaultuser && passval === defaultpwd) return true;
-    else return false;
-  }
+  //   if (unameval === defaultuser && passval === defaultpwd) return true;
+  //   else return false;
+  // }
   return (
     <div  className="main-Login">
       
@@ -40,7 +36,7 @@ function CustomerLogin() {
             <img src={logo} alt="" style={{height:"100px", width:"100px"}}/>
           </div> */}
           <form>
-            <label for="uname">Customer Id</label>
+            <label for="uname">Customer mail</label>
             <input placeholder="Enter your Id" type="customerId" value={unameval} onChange={(e)=>{setunameval(e.target.value)}} id="uname"/>
             <label for="pwd">Password</label>
             <input placeholder="Enter Password" type="password" value={passval} onChange={(e)=>{setpassval(e.target.value)}} id="pwd" />
