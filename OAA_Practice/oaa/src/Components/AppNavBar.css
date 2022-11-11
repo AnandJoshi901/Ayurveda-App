@@ -1,0 +1,18 @@
+.custom{
+    margin-left: 50px;
+}
+
+.custom-footer{
+    background-color: black;
+}
+
+.logo-color{
+    color: yellow!important;
+}
+
+
+@media (max-width: 768px) { 
+    .custom{
+        margin-left: 20px;
+    }
+ }
