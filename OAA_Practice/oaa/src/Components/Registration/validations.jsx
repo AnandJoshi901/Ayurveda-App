@@ -20,21 +20,4 @@ export function passwordStrength(text) {
     return result.score < 3;
 }
 
-let registeredUsers = [
-    'ravi@kiran.com',
-    'mail@myblog.in',
-    'contact@lucky.com'
-];
 
-export function userExists(email) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if(registeredUsers.findIndex(u => u === email) !== -1) {
-                resolve(true);
-            }
-            else {
-                resolve(false);
-            }
-        });
-    });
-}

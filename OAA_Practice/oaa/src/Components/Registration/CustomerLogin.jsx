@@ -22,16 +22,7 @@ function CustomerLogin() {
       case 'email':
         if (!value || validEmail(value)) {
           currentFormErrors[name] = `Email address is invalid`;
-        } else {
-          userExists(value).then((result) => {
-            if (result) {
-              currentFormErrors[name] =
-                'The email is already registered. Please use a different email.';
-            } else {
-              delete currentFormErrors[name];
-            }
-          });
-        }
+        } 
         break;
       case 'password':
         if (minMaxLength(value, 6)) {
