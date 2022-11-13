@@ -35,82 +35,66 @@ function CustomerRegister() {
       }
     );
   };
-  return (
-    <div>
-      <HomeNavBar />
-    <div data-testid="create-1">
-  
-      <div className="container" >
-        <div className="w-75 mx-auto shadow p-5 mt-2 bg-light">
-          <div className="jumbotron">
-            <h1 className="display-4 text-center">Register Yourself as Customer</h1>
-            <br></br>
-            <hr></hr>
-            <br></br>
-            <div>
-              <form onSubmit={(e) => FormHandle(e)}>
-                <div className="form-group">
-                  <label for="exampleInputEmail1">Customer Id</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="customerId"
-                    placeholder="Enter Customer Id"
-                    required
-                    value={customerId}
-                    onChange={(e) => onInputChange(e)}
-                  />
-                </div>
-                <div className="form-group">
-                  <label for="exampleInputEmail1">Customer Name</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="customerName"
-                    placeholder="Enter Customer Name"
-                    required
-                    value={customerName}
-                    onChange={(e) => onInputChange(e)}
-                  />
-                </div>
-                <div className="form-group">
-                  <label for="exampleInputPassword1">Customer Email</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    name="emailId"
-                    placeholder="Enter Customer Email"
-                    required
-                    value={emailId}
-                    onChange={(e) => onInputChange(e)}
-                  />
-                </div>
-                <div className="form-group">
-                  <label for="exampleInputPassword1">Mobile Number</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="mobileNumber"
-                    placeholder="Enter mobileNumber"
-                    required
-                    value={mobileNumber}
-                    onChange={(e) => onInputChange(e)}
-                  />
-                </div>
-                <div className="form-group">
-                  <label for="exampleInputPassword1">Customer Password</label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    name="password"
-                    placeholder="Enter Customer Password"
-                    required
-                    value={password}
-                    onChange={(e) => onInputChange(e)}
-                  />
-                </div>
 
-                <div className="container text-center">
+  
+
+    return (
+        <>
+        <HomeNavBar />
+      <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+        <div className="card card0 border-0">
+            <div className="row d-flex">
+            <div className="col-lg-6 bg-image">
+                <div className="bg-text text-white">Welcome to RENT-O-CAR</div>
+                <div className="text-white text-center"> You're Just One Step Away From Renting Your Favourite Car</div>
+            </div>
+                <div className="col-lg-6">
+                    <div className="card2 card border-0 px-4 py-5">
+                        <h3 className="mb-1">Create your Rent-O-Car account</h3>
+                        <p className="mb-4 text-sm">Already have an account? <a className="text-primary login" href="/Customer-Login">Log In</a></p>
+                        
+                        <form onSubmit={(e) => FormHandle(e)}>
+                        <div className="row mt-3">
+                            <div className="col-md-6"> 
+                            <label className="mb-0">
+                                    <h6 className="mb-0 text-sm">customerId</h6>
+                                </label> <input className="form-control" type="text" name="customerId" onChange={(e) => onInputChange(e)}
+                                value={customerId}  />
+                                
+                                <div className="invalid-feedback"> First Name must be 3 to 20 characters long</div>
+                                </div>
+                            <div className="col-md-6"> <label className="mb-0">
+                                    <h6 className="mb-0 text-sm">Customer Name</h6>
+                                </label> <input className="form-control" type="text" name="customerName" onChange={(e) => onInputChange(e)}
+                                value={customerName}  />
+                                <div className="invalid-feedback"> Last Name must be 3 to 20 characters long</div>
+                                </div>
+                        </div>
+                        <div className="row mt-3"> 
+                            <div className="col-md-6"><label className="mb-0">
+                                <h6 className="mb-0 text-sm">Email</h6>
+                            </label> <input type="email" className="form-control" name="emailId" onChange={(e) => onInputChange(e)} pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" 
+                                value={emailId} required /> 
+                                <div className="invalid-feedback"> Email Id not valid</div>
+                            </div>
+                            <div className="col-md-6"> <label className="mb-0">
+                                <h6 className="mb-0 text-sm">Mobile Number</h6>
+                            </label> <input type="text" className="form-control" name="mobileNumber" onChange={(e) => onInputChange(e)}
+                                value={mobileNumber} pattern="^(?=.*\d)[\d]{10,10}$" required/>
+                                <div className="invalid-feedback"> Mobile number should be of 10 digits</div>
+                            </div>
+                            
+                        </div>
+                        <div className="row mt-3">
+                           
+                            <div className="col-md-6"> <label className="mb-0">
+                                <h6 className="mb-0 text-sm">Password</h6>
+                            </label> <input type="password" className="form-control" name="password" onChange={(e) => onInputChange(e)}
+                                value={password} minLength="8" maxLength="16" required />
+                                <div className="invalid-feedback"> Password should be between 8 to 16 characters</div>
+                            </div>
+                        </div>
+                        <div className="container text-center">
                   <button
                     id="addbtn"
                     type="submit"
@@ -119,13 +103,14 @@ function CustomerRegister() {
                     Add Customer
                   </button>
                 </div>
-              </form>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    </div>
-  );
-}
+    </>
+    );
+  }
+
 export default CustomerRegister;
