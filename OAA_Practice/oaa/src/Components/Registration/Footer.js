@@ -13,7 +13,7 @@ class Footer extends Component {
                         <div>
                             <Row>
                                     <div className="my-4">
-                                        <h5 className="text-white text-center mt-2 pt-1">Be in the know with the letest and greatest from <span className="logo-color" >RENT-O-CAR</span></h5>
+                                        <h5 className="text-white text-center mt-2 pt-1">Get your medicines soon from <span className="logo-color" >AYUR - STORE</span></h5>
                                     </div>
                             </Row>
                         </div>
@@ -22,8 +22,8 @@ class Footer extends Component {
                             <Col lg={4}>
                                 <div className="text-white ms-4 float-start">
                                     <h6 className="text-uppercase f-16">ABOUT COMPANY</h6>
-                                    <p className="mt-3 pt-2 mb-2 ">Rent your Dream Car and Make your Travel Easy and Comfortable.</p>
-                                    <FaHandHoldingMedical className="me-2 logo-color" style={{fontSize: 45}} /> AYUR-O-STORE
+                                    <p className="mt-3 pt-2 mb-2 ">Order your Required medicine </p>
+                                    <FaHandHoldingMedical className="me-2 logo-color" style={{fontSize: 45}} /> AYUR - STORE
                                 </div>
                             </Col>
 
@@ -36,7 +36,7 @@ class Footer extends Component {
                                         3481 Jack Street Beverly Jack Hills 90210 Block, USA
                                         </li>
                                         <li className="list-item">
-                                            rentocar@example.com
+                                            ayurstore@example.com
                                         </li>
                                         <li className="list-item">
                                         +112 367 896 2449<br />+112 367 896 2449
