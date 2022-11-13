@@ -106,31 +106,24 @@ function CustomerLogin() {
       }
     );
   };
-
-
-  return (
-    <div>
-      <HomeNavBar />
-    <div className='App container col-6'>
-      
-      <h3>Customer Login Page</h3>
-      <ul>
-        {Object.entries(formErrors || {}).map(([prop, value]) => {
-          return (
-            <ol className='error-message' key={prop}>
-              {value}
-            </ol>
-          );
-        })}
-      </ul>
-      <form onSubmit={submit} noValidate>
-        <div className='row'>
-          
-          
-        </div>
-
-        <div className='mb-3'>
-          <label htmlFor='email'>Email</label>
+return (
+    <>
+    <HomeNavBar />
+  <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <div className="card card0 border-0">
+        <div className="row d-flex">
+            <div className="col-lg-6 bg-image">
+                <div className="bg-text text-white">Welcome to RENT-O-CAR</div>
+                <div className="text-white text-center"> You're Just One Step Away From Renting Your Favourite Car</div>
+            </div>
+            <div className="col-lg-6 text-center">
+                <div className="card2 card border-0 px-4 py-5">
+                    <h3 className="mb-2">Login to your RENT-O-CAR account</h3>
+                    <p className="mb-4 text-sm">First Time User? <a className="text-primary login" href="/CustomerRegister">SignUp</a></p>
+                    
+                
+                    <div className="row mt-3"> 
+                        <div className="col"><label htmlFor='email'>Email</label>
           <input
             className={
               formErrors && formErrors.email
@@ -143,9 +136,13 @@ function CustomerLogin() {
             noValidate
             onBlur={handleChange}
           />
-        </div>
-        <div className='mb-3'>
-          <label htmlFor='password'>Password</label>
+                            <div className="invalid-feedback"> Email Id not valid</div>
+                        </div>
+                        
+                    </div>
+                    <div className="row mt-1">
+                        <div className="col">
+                        <label htmlFor='password'>Password</label>
           <input   onChange={(e) => onInputChange(e)}
             className={
               formErrors && formErrors.password
@@ -158,35 +155,35 @@ function CustomerLogin() {
             noValidate
             onBlur={handleChange}
           />
-        </div>
-        {/* <div className='mb-3'>
-          <label htmlFor='confirmpassword'>Confirm Password</label>
-          <input
-            className={
-              formErrors && formErrors.confirmpassword
-                ? 'form-control error'
-                : 'form-control'
-            }
-            placeholder='Password'
-            type='password'
-            name='confirmpassword'
-            noValidate
-            onBlur={handleChange}
-          />
-        </div> */}
-        <div className='mb-3'>
-        <Link ><button
+                        </div>
+                    </div>
+                    <div className="text-center" style={{ display: 'block', 
+                                    width: 700, 
+                                    padding: 30 }}>
+                        
+                        <div id="loginMessage"></div>
+                    </div>
+                    <div className="row mb-4">
+
+                        <div className="col"> <Link ><button
             type='submit'
             disabled={Object.entries(formErrors || {}).length > 0}
             onClick={(e) => submit(e)}
           >
             Login
-          </button></Link>
-          <Link to={`/CustomerRegister`} ><button style={{marginLeft: "10px"}} className="btn btn-secondary">Register</button></Link> 
+          </button>
+          </Link></div>
+                    
+                    </div>
+                
+                </div>
+            </div>
         </div>
-      </form>
     </div>
-    </div>
-  );
+  </div>
+  </>
+ );
 }
+
+
 export default CustomerLogin;
