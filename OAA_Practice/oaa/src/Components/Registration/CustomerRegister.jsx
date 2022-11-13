@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { HomeNavBar } from './HomeNavBar';
 import {useNavigate } from "react-router-dom";
 
 function CustomerRegister() {
@@ -35,6 +36,8 @@ function CustomerRegister() {
     );
   };
   return (
+    <div>
+      <HomeNavBar />
     <div data-testid="create-1">
   
       <div className="container" >
@@ -121,6 +124,7 @@ function CustomerRegister() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

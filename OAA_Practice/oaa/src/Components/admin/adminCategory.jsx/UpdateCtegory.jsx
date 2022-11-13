@@ -32,7 +32,7 @@ function UpdateCategory() {
     axios.put(URL, data).then(
       (response) => {
         alert("Category Updated Successfully");
-        navigate("/medicinesPage");
+        navigate("/listMedicines");
       },
       (error) => {
         alert("Operation failed");

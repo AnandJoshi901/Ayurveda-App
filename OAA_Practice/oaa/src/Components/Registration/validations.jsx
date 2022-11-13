@@ -15,9 +15,9 @@ export function validEmail(text) {
     return !regex.test(text);
 }
 
-export function passwordStrength(text) {
-    let result = zxcvbn(text);
-    return result.score < 3;
-}
+// export function passwordStrength(text) {
+//     let result = zxcvbn(text);
+//     return result.score < 3;
+// }
 
 

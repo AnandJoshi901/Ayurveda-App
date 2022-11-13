@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import {Link,useNavigate} from 'react-router-dom';
+import { HomeNavBar } from './HomeNavBar';
+import CustomerServiceforlogin from './CustomerServiceforlogin';
 import {
   minMaxLength,
   validEmail,
-  passwordStrength,
-  userExists,
 } from './validations';
+//import CustomerService from '../../services/CustomerService';
 
 
 function CustomerLogin() {
-  let [user, setUser] = useState({});
+  //let [user, setUser] = useState({});
   let [formErrors, setFormErrors] = useState({});
+  const [Customers, setCustomers] = useState({
+    emailId:"",
+    password:""
+});
 
   const navigate = useNavigate();
   function handleChange(e) {
@@ -27,65 +32,87 @@ function CustomerLogin() {
       case 'password':
         if (minMaxLength(value, 6)) {
           currentFormErrors[name] = 'Password should have minimum 6 characters';
-        } else if (passwordStrength(value)) {
-          currentFormErrors[name] =
-            'Password is not strong enough. Include an upper case letter, a number or a special character to make it strong';
-        } else {
+        }
+         else {
           delete currentFormErrors[name];
-          setUser({
-            ...user,
+          setCustomers({
+            ...Customers,
             password: value,
           });
-          if (user.confirmpassword) {
-            validateConfirmPassword(
-              value,
-              user.confirmpassword,
-              currentFormErrors
-            );
-          }
+        //   if (user.confirmpassword) {
+        //     validateConfirmPassword(
+        //       value,
+        //       user.confirmpassword,
+        //       currentFormErrors
+        //     );
+        //   }
         }
         break;
-      case 'confirmpassword':
-        let valid = validateConfirmPassword(
-          user.password,
-          value,
-          currentFormErrors
-        );
-        if (valid) {
-          setUser({ ...user, confirmpassword: value });
-        }
-        break;
-      default:
-        break;
+    //   case 'confirmpassword':
+    //     let valid = validateConfirmPassword(
+    //       user.password,
+    //       value,
+    //       currentFormErrors
+    //     );
+    //     if (valid) {
+    //       setUser({ ...user, confirmpassword: value });
+    //     }
+    //     break;
+    //   default:
+    //     break;
     }
 
     setFormErrors(currentFormErrors);
-    setUser({ ...user, [name]: value });
+    setCustomers({ ...Customers, [name]: value });
   }
-  function validateConfirmPassword(
-    password,
-    confirmpassword,
-    formErrors
-  ) {
-    formErrors = formErrors || {};
-    if (password !== confirmpassword) {
-      formErrors.confirmpassword =
-        'Confirmed password is not matching with password';
-      return false;
-    } else {
-      delete formErrors.confirmpassword;
-      return true;
-    }
-  }
+//   function validateConfirmPassword(
+//     password,
+//     confirmpassword,
+//     formErrors
+//   ) {
+//     formErrors = formErrors || {};
+//     if (password !== confirmpassword) {
+//       formErrors.confirmpassword =
+//         'Confirmed password is not matching with password';
+//       return false;
+//     } else {
+//       delete formErrors.confirmpassword;
+//       return true;
+//     }
+//   }
 
   function submit(e) {
     e.preventDefault();
-    console.log(user);
+    addDataToServer(Customers);
+    console.log(Customers);
   }
+
+   const onInputChange = (e) => {
+    setCustomers({ ...Customers, [e.target.name]: e.target.value });
+    };
+
+
+  const addDataToServer = (data) => {
+      CustomerServiceforlogin.login(data).then(
+      (response) => {
+        console.log(response);
+        alert("Login Sucessfull");
+        console.log(data)
+        navigate("/homePage");
+      },
+      (error) => {
+        console.log(error.response.data);
+        alert("Invalid emailId or password");
+      }
+    );
+  };
 
 
   return (
+    <div>
+      <HomeNavBar />
     <div className='App container col-6'>
+      
       <h3>Customer Login Page</h3>
       <ul>
         {Object.entries(formErrors || {}).map(([prop, value]) => {
@@ -112,14 +139,14 @@ function CustomerLogin() {
             }
             placeholder='Email'
             type='email'
-            name='email'
+            name='emailId'
             noValidate
             onBlur={handleChange}
           />
         </div>
         <div className='mb-3'>
           <label htmlFor='password'>Password</label>
-          <input
+          <input   onChange={(e) => onInputChange(e)}
             className={
               formErrors && formErrors.password
                 ? 'form-control error'
@@ -132,7 +159,7 @@ function CustomerLogin() {
             onBlur={handleChange}
           />
         </div>
-        <div className='mb-3'>
+        {/* <div className='mb-3'>
           <label htmlFor='confirmpassword'>Confirm Password</label>
           <input
             className={
@@ -146,11 +173,12 @@ function CustomerLogin() {
             noValidate
             onBlur={handleChange}
           />
-        </div>
+        </div> */}
         <div className='mb-3'>
-        <Link to={`/HomePage/`} ><button
+        <Link ><button
             type='submit'
             disabled={Object.entries(formErrors || {}).length > 0}
+            onClick={(e) => submit(e)}
           >
             Login
           </button></Link>
@@ -158,7 +186,7 @@ function CustomerLogin() {
         </div>
       </form>
     </div>
+    </div>
   );
 }
 export default CustomerLogin;
-

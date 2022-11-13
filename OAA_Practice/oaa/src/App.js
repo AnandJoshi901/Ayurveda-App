@@ -19,7 +19,8 @@ import MedicineComponent from './Components/admin/adminMedicine.jsx/MedicineComp
 import HomeComponent from './Components/Registration/HomeComponent'
 import CustomerLogin from './Components/Registration/CustomerLogin';
 import CustomerRegister from './Components/Registration/CustomerRegister';
-
+import CreateMedicineComponent from './Components/admin/adminMedicine.jsx/CreateMedicineComponent';
+import Footer from './Components/Registration/Footer';
 
 function App() {
   return (
@@ -37,10 +38,10 @@ function App() {
         </Router> */}
 
 <Router>
-<HeaderComponent />
+{/* <HeaderComponent /> */}
         <Routes>
 
-          <Route path='/'  element={<HomeComponent />}></Route>
+        <Route path="/" exact element={<HomeComponent />}></Route>
 
           <Route path='/HomePage' element={<HomePage/>}/>
           <Route path='/listCustomer' element={<ListCustomerComponent/>}/>
@@ -61,10 +62,12 @@ function App() {
           {/* <Route path='/medicines' element={<MedicineComponent/>}/> */}
           {/* <Route path='/view-category/:id' element={<ViewCategoryComponent/>}/> */}
           <Route path='/viewMedicine-category/:id' element={<MedicineComponent/>}/>
+          <Route path = '/CreateMedicine' element = {<CreateMedicineComponent/>}/>
 
 
           </Routes>
-          <FooterComponent />
+          {/* <FooterComponent /> */}
+          <Footer />
           </Router>
     </div>
     

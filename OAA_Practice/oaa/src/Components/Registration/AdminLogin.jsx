@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { HomeNavBar } from './HomeNavBar';
 import {Link,useNavigate} from 'react-router-dom';
 
 function Login() {
@@ -29,7 +30,7 @@ function Login() {
   }
   return (
     <div  className="main-Login">
-      
+      <HomeNavBar />
       <div className="login-contain">
         <div className="left">
           {/* <div className='img'>
@@ -45,14 +46,7 @@ function Login() {
           </form>
           
         </div>
-        <div className="right">
-          <div className='welcomenote'>
-            <h3 >Welcome!</h3>
-          </div>
-          {/* <div className='welcomeimg'>
-            <img src={welcomeimg} id="wel-img-id"/>
-          </div> */}
-        </div>
+        
       </div>
       </div>     
   )

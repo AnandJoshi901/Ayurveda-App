@@ -39,6 +39,9 @@ class CategoryComponent extends Component {
                 <div className="container">
                     <div className='addbutton'>
                         <Link to={'/Category'}> <button  className="btn btn-dark"  >Create Category</button></Link>
+                    
+                        <Link to={'/CreateMedicine'}> <button  className="btn btn-dark"  >Add Medicine</button></Link>
+                    
                     </div>
                     {this.state.category.length === 0 ? "No Record " :
                         this.state.category.map((category, index) => (
