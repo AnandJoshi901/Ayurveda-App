@@ -10,7 +10,7 @@ export function HomeNavBar() {
   return (
     <Navbar bg="black" expand="sm" variant="dark" sticky="top">
       <Navbar.Brand as={Link} to="/" className="custom items-align-center">
-        <FaHandHoldingMedical className="logo-color me-2 mb-1" style={{fontSize: 45}} /> AYUR - O - STORE
+        <FaHandHoldingMedical className="logo-color me-2 mb-1" style={{fontSize: 45}} /> AYUR - STORE
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" style={{textAlign: "center"}}>
