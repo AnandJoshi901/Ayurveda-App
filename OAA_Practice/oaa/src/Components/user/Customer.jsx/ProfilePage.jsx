@@ -1,105 +1,68 @@
-import React, { useState, useRef } from 'react'
-import NavBarCustomer from '../../components/NavBarCustomer';
-import {useNavigate} from "react-router-dom";
-import Footer from "../../components/Footer";
-import "../../index.css";
+import React, { Component } from "react";
+import CustomerService from "../../../services/CustomerService";
+import { Link } from "react-router-dom";
+import 'bootstrap/dist//css/bootstrap.min.css'
+import NavBarCustomer from "../NavBarCustomer";
+let customerId = 1;
+class ProfilePage extends Component {
+  // Step 1:
+  constructor(props) {
+    super(props);
+    this.state = {
+      customer: {},
+    };
+  }
+  //Step 2:
+  componentDidMount() {
+    CustomerService.viewCustomerBycustomerId(customerId).then((Response) => {
+      this.setState({ customer: Response.data });
+    });
+  }
 
-function ProfilePage() {
-    
-    const [customerDetails, setCustomerDetails] = useState(CurrentUser);
-    const [disabled, setDisabled] = useState(true);
-    const formEL = useRef();
-
-    let navigate = useNavigate();
-  
-    const handlecustomerName = (e)=>{
-      setCustomerDetails({...customerDetails,customerName:e.target.value})
-    }
-  
-    const handleEmail = (e)=>{
-      setCustomerDetails({...customerDetails,emailId:e.target.value})
-    }
-  
-    const handleMobileNumber = (e)=>{
-      setCustomerDetails({...customerDetails,mobileNumber:e.target.value})
-    }
-  
-    const handlePassword = (e)=>{
-      setCustomerDetails({...customerDetails,password:e.target.value})
-    }
-  
-    // const clickHandler = (event) => {
-    //   if(formEL.current.checkValidity() === false) {
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //     formEL.current.classList.add("was-validated");
-    //   }else{
-    //     event.preventDefault();
-    //     setDisabled(true);
-    //     dispatch(UpdateCustomer(customerDetails)) 
-    //   }
-    // }
-
-    const clickHandler = (e) => {
-        e.preventDefault();
-        updateDataToServer(customerDetails);
-      };
-      const updateDataToServer = (data) => {
-        axios.put(URL, data).then(
-          (response) => {
-            alert("Customer Updated Successfully");
-            navigate("/CustomerComponent");
-          },
-          (error) => {
-            alert("Operation failed");
-          }
-        );
-      };
-  
+  render() {
     return (
-      <>
-      <div>   
-        <NavBarCustomer/>
-        <div className="card" style={{margin:"20px"}}>
-          <div className="card-body">
-            <div className='p-5 text-center bg-light'>
-              <h3 className='mb-3'>Your Details</h3>
-            </div>
-          <form className="needs-validation" onSubmit={clickHandler} ref={formEL} noValidate >
-          <div className="row justify-content-md-center">
-              <div className="col-md-5">
-                <label className="custom-format" htmlFor="customerName"> Name</label>
-                <input className="custom-format form-control input" type = "text" id="customerName" disabled = {disabled} 
-                    value = {customerDetails.customerName} onChange = {handlecustomerName} minLength="3" maxLength="20" required />
-                <div className="invalid-feedback">  Name must be 3 to 20 characters long</div>
-              </div>
-              <div className="col-md-1"></div>
-              <div className="col-md-5">
-                <label className="custom-format" htmlFor="emailId">Email id</label>
-                <input className="custom-format form-control input" type = "text" id="emialId" disabled = {true} value = {customerDetails.emailId} onChange = {handleEmail}/>
-                <label className="custom-format" htmlFor="mobileNumber">Mobile Number</label>
-                <input className="custom-format form-control input" type = "text" id="mobileNumber" disabled = {disabled} 
-                    value = {customerDetails.mobileNumber} onChange = {handleMobileNumber} pattern="^(?=.*\d)[\d]{10,10}$" required/>
-                <div className="invalid-feedback"> Mobile number should be of 10 digits</div>
-                <label className="custom-format" htmlFor="password">Password</label>
-                <input className="custom-format form-control input" type = "text" id="password"disabled = {disabled} 
-                  value = {customerDetails.password} onChange = {handlePassword} />
-                {/* <div className="invalid-feedback"> Password should be of 6 or more characters</div> */}
-              </div>
-            </div>
-            <div className="row container-fluid justify-content-md-center">
-            <div className="col-md-4">
-              <button className="btn btn-profile-primary" type="button" onClick={() => setDisabled(false)} >Edit</button>
-              <button className="btn btn-profile" onClick={clickHandler}>Save</button>
+      <div>
+        <NavBarCustomer />
+        <div className="container" >
+          <br></br>
+          
+        <h3 className = "text-center"> Your Details</h3>
+          <br />
+          <div className="card " style={{ boxShadow: "2px 2px 5px black" }}>
+            <br />
+            <div className="card-body" style={{ color: "black" }}>
+            <h5 className="card-text">
+                Customer Id &nbsp; : &nbsp;{this.state.customer.customerId}
+              </h5>
+              <h5 className="card-title">
+                Customer Name &nbsp; :&nbsp; {this.state.customer.customerName}
+              </h5>
+              <h5 className="card-text">
+                Email ID &nbsp; : &nbsp; {this.state.customer.emailId}
+              </h5>
+              <h5 className="card-text">
+                Mobile Number &nbsp; : &nbsp;{this.state.customer.mobileNumber}
+              </h5>
+              
+              {/* <div className="d-grid gap-2"> */}
+                <button id="addbtn" className="btn btn-secondary" type="button">
+                  <Link
+                    id="addbtn"
+                    style={{ textDecoration: "none", color: "white" }}
+                    to={`/customer/updatecustomer/${this.state.customer.customerId}`}
+                  >
+                    <strong>Update</strong>
+                  </Link>{" "}
+                </button>
+              {/* </div> */}
             </div>
           </div>
-          </form>
-          </div>       
-        </div>
+        </div><br />
+        <br />
+        <br />
+        <br />
       </div>
-      <Footer />
-      </>
     )
   }
-  
-  export default ProfilePage
+}
+export default ProfilePage;

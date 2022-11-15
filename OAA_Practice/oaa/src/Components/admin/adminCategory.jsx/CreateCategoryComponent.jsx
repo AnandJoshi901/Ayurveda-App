@@ -29,7 +29,7 @@ function CreateCategoryComponent() {
       (response) => {
         console.log(response);
         alert("Category Added Successfully");
-        navigate("/medicinesPage");
+        navigate("/listCategories");
       },
       (error) => {
         console.log(error);
@@ -44,6 +44,9 @@ function CreateCategoryComponent() {
         <div className="w-75 mx-auto shadow p-5 mt-2 bg-light">
           <div className="jumbotron">
             <h1 className="display-4 text-center">Add Category!</h1>
+            <br></br>
+            <hr></hr>
+            <br></br>
             <div>
               <form onSubmit={(e) => FormHandle(e)}>
               <div className="form-group">
@@ -75,7 +78,7 @@ function CreateCategoryComponent() {
                   <button
                     id="addbtn"
                     type="submit"
-                    class="btn my-2 text-center mr-2" 
+                    class="btn btn-secondary" 
                   >
                     Add Category
                   </button>

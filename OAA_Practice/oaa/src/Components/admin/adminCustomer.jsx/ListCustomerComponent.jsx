@@ -17,6 +17,7 @@ class ListCustomerComponent extends Component {
     }
 
     removeCustomer(id){
+        
         CustomerService.removeCustomer(id).then( res => {
             this.setState({Customers: this.state.Customers.filter(customer => customer.id !== id)});
         });
@@ -44,11 +45,11 @@ class ListCustomerComponent extends Component {
                  <hr></hr>
                  <br></br>
                  <div>
-                 <Link to={`/add-customer`} ><button className="btn btn-dark" style={{marginLeft: "10px"}}>Add Customer</button></Link>
+                 <Link to={`/add-customer`} ><button className="btn btn-dark" style={{marginLeft: "120px"}}>Add Customer</button></Link>
                  </div>
                  <br></br>
                  <div className = "text-center" >
-                        <table className = "table table-striped table-bordered"  style={{width: "80%",  marginleft: "auto",marginright: "auto",alignContent:"center",alignItems:"center"}}>
+                        <table className = "table table-striped table-bordered"  style={{width: "100%", alignContent:"center",alignItems:"center"}}>
 
                             <thead >
                                 <tr>
@@ -69,7 +70,7 @@ class ListCustomerComponent extends Component {
                                              <td> {customer.emailId}</td>
                                              <td>
                                                 <Link to={`/update-customer/${customer.customerId}`}><button style={{marginLeft: "10px"}} className="btn btn-warning">Update</button></Link>
-                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.removeCustomer(customer.customerId)} className="btn btn-danger">Delete </button>
+                                                 {/* <button style={{marginLeft: "10px"}} onClick={ () => this.removeCustomer(customer.customerId)} className="btn btn-danger">Delete </button> */}
                                                  <Link to={`/view-customer/${customer.customerId}`} ><button style={{marginLeft: "10px"}} className="btn btn-secondary">View</button></Link>
                                              </td>
                                         </tr>
@@ -79,6 +80,10 @@ class ListCustomerComponent extends Component {
                         </table>
 
                  </div>
+
+                 <br></br>
+                 <hr></hr>
+                 <br></br>
 
             </div>
         )

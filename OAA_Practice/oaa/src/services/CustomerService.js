@@ -24,6 +24,7 @@ class CustomerService {
     removeCustomer(customerId){
         return axios.delete(CUSTOMER_API_BASE_URL + '/' + customerId);
     }
+    
 }
 
 export default new CustomerService()

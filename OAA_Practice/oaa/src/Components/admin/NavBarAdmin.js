@@ -6,28 +6,13 @@ import "../AppNavBar.css";
 function NavBarAdmin(props) {
     let navigate=useNavigate();
 
-    // const usr = useSelector((state)=>state.usr);
-    // useEffect(()=>{ 
-    //   if(Object.keys(usr).length === 0){
-    //       console.log("Invalid User");
-    //       navigate("/login");
-    //   }
-    //   else if(usr.role === "admin"){
-    //     console.log("Invalid User");
-    //     navigate("/login");
-    //   }
-    //   else{}
-    // });
-
   return (
     
   <Navbar bg="black" expand="md" variant="dark">
       <Navbar.Brand onClick={()=>{
                 navigate("/")}} className="custom items-align-center">
-                  
-        {/* this is for logo
-        <FaCar className="logo-color me-2 mb-1" style={{fontSize: 45}} /> */}
-         OAA
+
+      Herbal Medics
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" style={{textAlign: "center"}}>
@@ -43,22 +28,27 @@ function NavBarAdmin(props) {
             Customers
           </Nav.Link>
           <Nav.Link onClick={()=>{
-            navigate("/listMedicines")
+            navigate("/listCategories")
+            }}>
+            Categories
+          </Nav.Link>
+          <Nav.Link onClick={()=>{
+            navigate("/AdminListMedicines")
             }}>
             Medicines
           </Nav.Link>
-          <Nav.Link onClick={()=>{
+          {/* <Nav.Link onClick={()=>{
             navigate("/allCarts")
           }}>
             Carts
-          </Nav.Link>
+          </Nav.Link> */}
           <Nav.Link onClick={()=>{
             navigate("/orders")
           }}>
             All Orders
           </Nav.Link>
           
-          <Nav.Link href="/login">
+          <Nav.Link href="/Admin-Login">
             Logout
           </Nav.Link>
         </Nav>

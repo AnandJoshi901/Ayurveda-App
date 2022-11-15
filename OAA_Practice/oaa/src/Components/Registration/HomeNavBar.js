@@ -3,14 +3,14 @@ import { Nav, Navbar } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 import "./RegNavBar.css";
-import { FaHandHoldingMedical } from 'react-icons/fa'
+import {FaHandHoldingMedical} from 'react-icons/fa'
 
 export function HomeNavBar() {
   
   return (
     <Navbar bg="black" expand="sm" variant="dark" sticky="top">
       <Navbar.Brand as={Link} to="/" className="custom items-align-center">
-        <FaHandHoldingMedical className="logo-color me-2 mb-1" style={{fontSize: 45}} /> AYUR - STORE
+        <FaHandHoldingMedical className="logo-color me-2 mb-1" style={{fontSize: 45}} /> HERBAL MEDICS
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" style={{textAlign: "center"}}>

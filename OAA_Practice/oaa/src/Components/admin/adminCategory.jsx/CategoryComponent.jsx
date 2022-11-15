@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import CategoryService from './CategoryService';
 import axios from 'axios';
-import { Nav, Navbar } from "react-bootstrap";
+import NavBarAdmin from '../NavBarAdmin';
 
 
 class CategoryComponent extends Component {
@@ -16,7 +16,9 @@ class CategoryComponent extends Component {
     //Step 2:
     componentDidMount() {
         CategoryService.showAll().then((Response) => {
+            
             this.setState({ category: Response.data })
+            console.log(Response.data);
         });
 
     }
@@ -34,21 +36,30 @@ class CategoryComponent extends Component {
     };
     render() {
         return (
+
             <div>
-                 <Navbar/>
-                <div className="container">
-                    <div className='addbutton'>
-                        <Link to={'/Category'}> <button  className="btn btn-dark"  >Create Category</button></Link>
-                    
-                        <Link to={'/CreateMedicine'}> <button  className="btn btn-dark"  >Add Medicine</button></Link>
-                    
+                 <NavBarAdmin/>
+                 <br></br>
+                 <br></br>
+                 <div className = "card col-md-8 offset-md-2" >
+                <h3 className = "text-center" > Categories </h3>
+                {/* <div className="row row-cols-3" style={{ alignItems:"center"}}></div> */}
+                </div>
+                <div className="card col-md-8 offset-md-2">
+                    <br></br>
+                    <div className='addbutton' >
+                        <Link to={'/Category'}> <button  className="btn btn-dark" style={{ marginLeft:"150px"}} >Create Category</button></Link>
+                        <Link to={'/AddMedicine'}> <button  className="btn btn-dark" style={{ marginLeft:"500px"}} >Add Medicine</button></Link>
                     </div>
+                    <div className="row row-cols-3" style={{ alignItems:"center"}}>
                     {this.state.category.length === 0 ? "No Record " :
                         this.state.category.map((category, index) => (
+                            <div className="col" style={{ alignContent:"center"}}>
                             <div className="card" style={{ margin: "2rem" }} key={category.id}>
                                 <div className='jumbotron'>
                                 <div className="card-body" style={{color:"black"}} >
                                     <h5 className="card-title">{index + 1}</h5>
+                                    <hr></hr>
                                     <h5 className="card-title">Category Name &nbsp; :&nbsp; {category.categoryName}</h5>
                                     <h5 className="card-text">Category Id &nbsp; :&nbsp; {category.categoryId}</h5>
                                     <div>
@@ -59,10 +70,17 @@ class CategoryComponent extends Component {
                                     </div>
                                 </div>
                             </div>
+                            </div>
+                            
                         ))}
+                        </div>
+                        <br></br>
+                <br></br>
+                <br></br><br></br>
                 </div>
-             
+                
             </div>
+            
         )
     }
 }

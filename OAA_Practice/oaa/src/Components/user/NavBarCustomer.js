@@ -14,7 +14,7 @@ function NavBarCustomer(props) {
                   
         {/* this is for logo
         <FaCar className="logo-color me-2 mb-1" style={{fontSize: 45}} /> */}
-         OAA
+         Herbal Medics
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" style={{textAlign: "center"}}>
@@ -23,6 +23,11 @@ function NavBarCustomer(props) {
                 navigate("/homePage")
             }}>
             Home
+          </Nav.Link>
+          <Nav.Link onClick={()=>{
+                navigate("/listMedicines")
+            }}>
+              All Medicines
           </Nav.Link>
           <Nav.Link onClick={()=>{
             navigate("/profilePage")
@@ -35,12 +40,12 @@ function NavBarCustomer(props) {
             Cart
           </Nav.Link>
           <Nav.Link onClick={()=>{
-            navigate("/customerOrder")
+            navigate("/viewOrderByCustomerId")
           }}>
             My Orders
           </Nav.Link>
           
-          <Nav.Link href="/login">
+          <Nav.Link href="/Customer-Login">
             Logout
           </Nav.Link>
         </Nav>

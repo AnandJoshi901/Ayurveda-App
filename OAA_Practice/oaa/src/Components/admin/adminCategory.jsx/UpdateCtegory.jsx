@@ -32,7 +32,7 @@ function UpdateCategory() {
     axios.put(URL, data).then(
       (response) => {
         alert("Category Updated Successfully");
-        navigate("/listMedicines");
+        navigate("/listCategories");
       },
       (error) => {
         alert("Operation failed");
@@ -52,6 +52,9 @@ function UpdateCategory() {
         <div className="w-75 mx-auto shadow p-5 mt-2 bg-light">
           <div className="jumbotron">
             <h1 className="display-4 text-center">Update category!</h1>
+            <br></br>
+            <hr></hr>
+            <br></br>
             <div>
               <form onSubmit={(e) => FormHandle(e)}>
               <div className="form-group">
@@ -82,7 +85,7 @@ function UpdateCategory() {
                 <div className="container text-center">
                   <button id="addbtn"
                     type="submit"
-                    className="btn my-2 text-center mr-2"
+                    className="btn btn-secondary"
                   >
                     Update Category
                   </button>

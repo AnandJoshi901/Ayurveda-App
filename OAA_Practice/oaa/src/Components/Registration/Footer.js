@@ -13,7 +13,7 @@ class Footer extends Component {
                         <div>
                             <Row>
                                     <div className="my-4">
-                                        <h5 className="text-white text-center mt-2 pt-1">Get your medicines soon from <span className="logo-color" >AYUR - STORE</span></h5>
+                                        <h5 className="text-white text-center mt-2 pt-1">Get your medicines soon from <span className="logo-color" >HERBAL-MEDICS</span></h5>
                                     </div>
                             </Row>
                         </div>
@@ -22,8 +22,9 @@ class Footer extends Component {
                             <Col lg={4}>
                                 <div className="text-white ms-4 float-start">
                                     <h6 className="text-uppercase f-16">ABOUT COMPANY</h6>
-                                    <p className="mt-3 pt-2 mb-2 ">Order your Required medicine </p>
-                                    <FaHandHoldingMedical className="me-2 logo-color" style={{fontSize: 45}} /> AYUR - STORE
+                                    <p className="mt-3 pt-2 mb-2 ">We focus on Simplifying healthcare & Impacting lives! </p>
+                                    <br></br>
+                                    <FaHandHoldingMedical className="me-2 logo-color" style={{fontSize: 45}} /> HERBAL-MEDICS
                                 </div>
                             </Col>
 
@@ -33,13 +34,13 @@ class Footer extends Component {
                                     <h6 className="text-white text-uppercase f-16">LOCATE US</h6>
                                     <ul className="list text-white mt-3 pt-2 mb-0">
                                         <li className="list-item">
-                                        3481 Jack Street Beverly Jack Hills 90210 Block, USA
+                                        381,5th block, Srinivas Nagar, Bangalore, India
                                         </li>
                                         <li className="list-item">
-                                            ayurstore@example.com
+                                            herbalmedics@gmail.com
                                         </li>
                                         <li className="list-item">
-                                        +112 367 896 2449<br />+112 367 896 2449
+                                        +91 967 896 2448<br />+91 967 896 2449
                                         </li>
                                         <li className="list-item">
                                             Office Time : 8:00 a.m - 6:00 p.m

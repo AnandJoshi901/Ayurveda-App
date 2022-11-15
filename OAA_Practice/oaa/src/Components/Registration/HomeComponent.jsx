@@ -2,6 +2,7 @@ import React, { Component }  from 'react';
 import { HomeNavBar } from './HomeNavBar';
 import { Button, Carousel } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import Footer from './footer';
 
 export function HomeComponent() {
   let navigate = useNavigate();
@@ -13,8 +14,7 @@ export function HomeComponent() {
         <Carousel.Item>
           <img
             className="d-block vw-100 vh-100"
-           // src="http://newtrackindia.com/imgs/slider/car-rental-services.jpg"
-            src="https://www.volumetree.com/wp-content/uploads/2020/04/Online-Medicine-Store.png"
+            src="https://dwibhashi.co.in/images/slider-1.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -28,8 +28,7 @@ export function HomeComponent() {
         <Carousel.Item>
           <img
             className="d-block vw-100 vh-100"
-           // src="http://newtrackindia.com/imgs/slider/corporate-car-rental-services-chennai.jpg"
-            src="https://media.istockphoto.com/id/1242457489/vector/hands-in-disposable-gloves-with-paper-bag-with-medicines-drugs-pills-and-bottles-inside.jpg?s=612x612&w=0&k=20&c=em8YhqUOvKpLbCNfKELNghzw4r4vxilb5CsGG8O4Q6U="
+            src="https://flushinghospital.org/newsletter/wp-content/uploads/2017/01/Herbal-Medicine-MX-680x340-1440545288.jpg"
             alt="Second slide"
           />
 
@@ -44,8 +43,7 @@ export function HomeComponent() {
         <Carousel.Item>
           <img
             className="d-block vw-100 vh-100"
-            //src="http://newtrackindia.com/imgs/slider/corporate-car-rental-services.jpg"
-            src="https://media.istockphoto.com/id/1289187345/vector/human-hand-holding-smartphone-using-mobile-app-order-cbd-products-online.jpg?s=612x612&w=0&k=20&c=90FjALFYkVgSOuCKmL7wqOaAoc3ivQouJ7KncsCKojU="
+            src="http://rakshakayurveda.com/wp-content/uploads/2022/04/slider1571304559slider1565264538slider1.jpg"
             alt="Third slide"
           />
 
@@ -60,12 +58,9 @@ export function HomeComponent() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+
+      <Footer/>
     </div>
   );
 }
 export default HomeComponent
-
-
-
-{/* <Link to={`/Admin-Login`}><button style={{marginLeft: "10px"}} className='btn btn-warning'>Admin Login</button></Link> 
-<Link to={`/Customer-Login`}><button style={{marginLeft: "10px"}} className='btn btn-secondary' >Customer Login </button></Link> */}

@@ -24,6 +24,11 @@ class MedicineService {
     removeMedicine(medicineId){
         return axios.delete(MEDICINE_API_BASE_URL + '/' + medicineId);
     }
+
+    addToCart(cartId,medicineId){
+        return axios.put("http://localhost:8089/api/v1/Cart" + '/' + cartId + '/' + medicineId);
+    }
+
 }
 
 export default new MedicineService()

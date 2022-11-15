@@ -1,0 +1,133 @@
+body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    /* background: linear-gradient(45deg, #304FFE 50%, #EEEEEE 50%); */
+    background-repeat: no-repeat
+}
+
+.card0 {
+    box-shadow: 0px 4px 8px 0px #757575;
+    border-radius: 10px
+}
+
+.card1 {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px
+}
+
+.logo {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 25px
+}
+
+.image {
+    width: 300px;
+    height: 300px
+}
+
+.card2 {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px
+}
+
+.login {
+    cursor: pointer
+}
+
+
+.fb {
+    background-color: #f7ea3e;
+    color: #fff;
+    padding: 3px 0px 3px 3px;
+    border-radius: 2px;
+    cursor: pointer
+}
+
+.line {
+    height: 1px;
+    width: 45%;
+    background-color: #E0E0E0;
+    margin-top: 10px
+}
+
+.or {
+    width: 10%
+}
+
+.text-sm {
+    font-size: 14px !important
+}
+
+input,
+textarea {
+    padding: 10px 12px 10px 12px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    margin-bottom: 0px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background-color: #ECEFF1
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #f7ea3e;
+    outline-width: 0
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+.btn-blue {
+    background-color: #f7ea3e;
+    width: 100%;
+    color: #f7ea3e;
+    border-radius: 6px
+}
+
+.btn-blue:hover {
+    background-color: #eaea4ae2;
+    cursor: pointer
+}
+
+.bg-image{
+    background: linear-gradient(to right, rgba(57, 57, 57, 0.5) 0% , rgba(107, 104, 30, 0.5) 25% ), url("https://ebyqn4u95z4.exactdn.com/wp-content/uploads/Mortar_Pestle_Herbs_2-scaled.jpg?strip=all&lossy=1&ssl=1");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.bg-text{
+    text-align: center;
+    margin-top: 45%;
+    margin-bottom: 5px;
+    font-size: 30px;
+}
+
+
+
+@media screen and (max-width: 991px) {
+    .card1 {
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 10px
+    }
+
+    .card2 {
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 0px
+    }
+}

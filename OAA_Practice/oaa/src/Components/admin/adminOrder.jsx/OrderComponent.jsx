@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import OrderServices from "./OrderServices";
 import NavBarAdmin from "../NavBarAdmin";
-import ViewCustomerComponent from "../../admin/adminCustomer.jsx/ViewCustomerComponent";
+import axios from "axios";
 
 
 class OrderComponent extends Component {
@@ -12,6 +12,7 @@ class OrderComponent extends Component {
       this.state = {
         Orders: [],
       };
+      this.cancelOrder = this.cancelOrder.bind(this);
     }
     //Step 2:
     componentDidMount() {
@@ -20,28 +21,39 @@ class OrderComponent extends Component {
         console.log(this.state.Orders);
       });
     }
-    // deleteOrder = (bookingId) => {
-    //   axios
-    //     .delete(`http://localhost:8089/api/v1/order/${id}`)
-    //     .then(
-    //       (response) => {
-    //         alert("Record Deleted Successfully");
-    //         this.setState({
-    //           Orders: this.state.Orders.filter(
-    //             (Orders) => Orders.bookingOrderId !== bookingId
-    //           ),
-    //         });
-    //       },
-    //       (error) => {
-    //         alert("Operation Failed Here");
-    //       }
-    //     );
-    // };
+    cancelOrder = (orderId) => {
+      axios
+        .delete(`http://localhost:8089/api/v1/order/${orderId}`)
+        .then(
+          (response) => {
+            alert("Order has been Cancelled");
+            this.setState({
+              Orders: this.state.Orders.filter(
+                (Orders) => Orders.orderId !== orderId
+              ),
+            });
+          },
+          (error) => {
+            alert("Unable to cancel the order");
+          }
+        );
+    };
     render() {
       return (
+        
         <div>
-          <NavBarAdmin/>
-          <div className="container">
+          <NavBarAdmin/><br></br>
+                 <br></br>
+                 <div className = "card col-md-8 offset-md-2" >
+                <h3 className = "text-center" > Orders </h3>
+                
+                
+                </div>
+                <br></br>
+                <div className="card col-md-8 offset-md-2" style={{ backgroundColor: "#eee" ,alignItems:"center"}}>
+                    <br></br>
+                    <div className="row row-cols-4" style={{ alignItems:"center"}}>
+                    {/* <div className="row row-cols-3" style={{ alignItems:"center"}}> */}
             {this.state.Orders.length === 0
               ? "No Record "
               : this.state.Orders.map((Orders, index) => (
@@ -53,36 +65,39 @@ class OrderComponent extends Component {
                     <div className="jumbotron">
                       <div className="card-body" style={{ color: "black" }}>
                         <h5 className="card-title">{index + 1}</h5>
+                        
+                        <hr></hr>
                         <h5 className="card-title">
                           Order Id:&nbsp;{Orders.orderId}
-                        </h5>
+                          </h5>
+                        
                         <h5 className="card-text">
                           Order Date:&nbsp;{Orders.orderDate}
                         </h5>
                         <h5 className="card-text">
                           Dispatch Date:&nbsp;{Orders.dispatchDate}
                         </h5>
-                        {/* <h5 className="card-text">
-                          Transaction Mode:&nbsp;{Orders.transactionMode}
-                        </h5> */}
                         <h5 className="card-text">
                           Cost:&nbsp;{Orders.cost}
                         </h5>
                         <h5 className="card-text">
                           Order status:&nbsp;{Orders.status}
                         </h5>
-                        {/* <h5 className="card-text">
-                          Quantity:&nbsp;{Orders.quantity}
-                        </h5> */}
                         <h5 className="card-text">
-                          Customer Details:&nbsp;{Orders.customer.customerName}
+                          Customer Name:&nbsp;{Orders.customer.customerName}
                         </h5>
-                        <h5 className="card-text">
-                          Medicine Details:&nbsp;{Orders.medicine.medicineId}
+
+                        <div>
+                                        {/* <Link to={`/update-order/${Orders.orderId}`}><button style={{marginLeft: "10px", marginTop:"10px"}} className='btn btn-warning'>Update Status</button></Link>  */}
+                                        <button style={{marginLeft: "10px",marginTop:"10px"}} className="btn btn-danger" onClick={e => window.confirm('Are you sure, you want to cancel this order?') ? this.cancelOrder(Orders.orderId) : e.preventDefault()} >Cancel Order</button>
+                                        <Link to={`/view-order/${Orders.orderId}`}><button style={{marginLeft: "10px",marginTop:"10px"}} className='btn btn-secondary' >View Order Details </button></Link>
+                                    </div>
+                        {/* <h5 className="card-text">
+                          Medicine Name:&nbsp;{Orders.medicine.medicineId}
                         </h5>
                         <h5 className="card-text">
                           Category Details:&nbsp;{Orders.medicine.category.categoryName}
-                        </h5>
+                        </h5> */}
 
                         
                         {/* <div className="d-grid gap-2">
@@ -100,7 +115,12 @@ class OrderComponent extends Component {
                     </div>
                   </div>
                 ))}
+                
           </div>
+                        <br></br>
+                <br></br>
+                <br></br><br></br>
+                </div>
         </div>
       );
     }
