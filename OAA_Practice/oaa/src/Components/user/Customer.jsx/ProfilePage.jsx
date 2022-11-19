@@ -3,8 +3,11 @@ import CustomerService from "../../../services/CustomerService";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist//css/bootstrap.min.css'
 import NavBarCustomer from "../NavBarCustomer";
-let customerId = 1;
+
+let customerId=21;
+
 class ProfilePage extends Component {
+  
   // Step 1:
   constructor(props) {
     super(props);
@@ -21,7 +24,9 @@ class ProfilePage extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ 
+        backgroundImage: `url("https://img.freepik.com/free-vector/clean-medical-background_53876-97927.jpg?w=2000")` 
+      }}>
         <NavBarCustomer />
         <div className="container" >
           <br></br>

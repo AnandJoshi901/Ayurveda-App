@@ -4,7 +4,7 @@ import axios from "axios";
 import Button from 'react-bootstrap/Button';
 // import "../CSSStyles/cart.css";
 import NavBarCustomer from '../NavBarCustomer';
-let  id = 1;
+
 export default class UserCartComponent extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +24,7 @@ export default class UserCartComponent extends Component {
     });
     
   }
-  deleteAll = (cartId=id) => {
+  deleteAll = (cartId=16) => {
     axios.delete(`http://localhost:8089/api/v1/medicines/${cartId}`).then((response) => {
       // alert("Cart has been emptied successfully");
       CartService.viewCartInfo().then((response) => {
@@ -39,7 +39,7 @@ export default class UserCartComponent extends Component {
       }
     );
   }
-  deleteMedicine = (cartId=id, medicineId) => {
+  deleteMedicine = (cartId=16, medicineId) => {
     axios.delete(`http://localhost:8089/api/v1/cart/${cartId}/${medicineId}`).then((response) => {
       CartService.viewCartInfo().then((response) => {
         this.setState({ Carts: response.data })
@@ -55,7 +55,7 @@ export default class UserCartComponent extends Component {
       }
     );
   }
-  placeOrder = (cartId=id, medicineId) => {
+  placeOrder = (cartId=16, medicineId) => {
     if (window.confirm("Click OK to confirm the order !") === true) {
       axios.post(`http://localhost:8089/api/v1/order/${cartId}/${medicineId}`).then((response) => {
         alert("Order has been placed successfully");
@@ -79,12 +79,17 @@ export default class UserCartComponent extends Component {
   };
   render() {
     return (
-      <>
+      <div style={{ 
+        backgroundImage: `url("https://img.freepik.com/free-vector/clean-medical-background_53876-97927.jpg?w=2000")` 
+      }}>
         <NavBarCustomer/>
+        <br></br>
         <h3 className="text-center">Shopping Cart</h3>
-        <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
-          <div style={{ backgroundColor: "#eee" }}>
+        <br></br>
+        <div className="container">
+          <div style={{ backgroundColor: "#eee",boxShadow: "2px 2px 5px black" }}>
             <div >
+              
               <div className="justify-content-center align-items-center">
 
                 <div>
@@ -183,7 +188,7 @@ export default class UserCartComponent extends Component {
             </div>
           </div>
         </div>
-      </>
+      </div>
     )
   }
 }

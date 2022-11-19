@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -5,7 +7,7 @@ import axios from "axios";
 import NavBarCustomer from "../NavBarCustomer";
 import { Link } from "react-router-dom";
 import MedicineServices from "../../../services/MedicineServices";
-let cartid = 1;
+
 function ViewMedicineByCategoryId_user() {
     const { id } = useParams();
     const URL = `http://localhost:8089/api/v1/Category/${id}`;
@@ -35,7 +37,7 @@ function ViewMedicineByCategoryId_user() {
 
     const add= (id) => {
         if (window.confirm("Click OK to confirm adding to cart !") === true){
-          MedicineServices.addToCart(cartid,id).then((response)=>
+          MedicineServices.addToCart(16,id).then((response)=>
           {
             console.log(response);
             alert("Medicine Added to Your Cart Successfully");

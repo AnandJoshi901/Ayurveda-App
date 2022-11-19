@@ -3,7 +3,6 @@ import 'bootstrap/dist//css/bootstrap.min.css';
 import axios from "axios";
 import NavBarCustomer from "../NavBarCustomer";
 import userOrderService from "./userOrderService";
-let customerId = 1;
 class ViewOrderByCustomerId extends Component{
     constructor(props){
         super(props);
@@ -14,7 +13,7 @@ class ViewOrderByCustomerId extends Component{
         };
     }
     componentDidMount(){
-        userOrderService.viewOrder(customerId).then((Response)=> {
+        userOrderService.viewOrder(21).then((Response)=> {
             this.setState({Orders:Response.data});
         });
     }
@@ -23,7 +22,7 @@ class ViewOrderByCustomerId extends Component{
             axios.delete(`http://localhost:8089/api/v1/order/${id}`).then(
             (response) => {
                 alert("Order cancelled Successfully");
-                userOrderService.viewOrder(customerId).then((Response)=> {
+                userOrderService.viewOrder(21).then((Response)=> {
                     this.setState({Orders:Response.data});
                 });
             },
@@ -39,16 +38,18 @@ class ViewOrderByCustomerId extends Component{
     
     render(){
         return(
-          <div>
+          <div style={{ 
+            backgroundImage: `url("https://img.freepik.com/free-vector/clean-medical-background_53876-97927.jpg?w=2000")` 
+          }}>
           <NavBarCustomer/><br></br>
                  <br></br>
-                 <div className = "card col-md-8 offset-md-2" >
+                 <div className = "card col-md-8 offset-md-2" style={{ backgroundColor: "#eee",boxShadow: "2px 2px 5px black" }}  >
                 <h3 className = "text-center" >Your Orders </h3>
                 
                 
                 </div>
                 <br></br>
-                <div className="card col-md-10 offset-md-1" style={{ backgroundColor: "#eee" }}>
+                <div className="card col-md-10 offset-md-1" style={{ backgroundColor: "#eee",boxShadow: "2px 2px 5px black" }}>
                     <br></br>
                     <div className="row row-cols-5" style={{ alignItems:"center"}}>
           {this.state.Orders.length === 0
@@ -56,7 +57,7 @@ class ViewOrderByCustomerId extends Component{
             : this.state.Orders.map((Orders, index) => (
                 <div
                   className="card"
-                  style={{ margin: "2rem" }}
+                  style={{ margin: "2rem",boxShadow: "2px 2px 5px black" }}
                   key={Orders.id}
                 >
                   <div className="jumbotron">

@@ -101,6 +101,7 @@ return (
             placeholder='Email'
             type='email'
             name='emailId'
+            required
             noValidate
             onBlur={handleChange}
           />
@@ -120,12 +121,15 @@ return (
             placeholder='Password'
             type='password'
             name='password'
+            required
             noValidate
             onBlur={handleChange}
           />
                         </div>
                     </div>
-                    <div className="text-center" style={{ display: 'block',width: 700,padding: 30 }}>
+                    <div className="text-center" style={{ display: 'block', 
+                                    width: 700, 
+                                    padding: 30 }}>
                         
                         <div id="loginMessage"></div>
                     </div>

@@ -18,7 +18,7 @@ import javax.validation.constraints.Size;
 		
 		@Id
 		@Column(name="customer_id")
-		//@NotNull
+		@NotNull
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private Integer customerId;
 

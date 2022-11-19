@@ -44,13 +44,13 @@ class OrderComponent extends Component {
         <div>
           <NavBarAdmin/><br></br>
                  <br></br>
-                 <div className = "card col-md-8 offset-md-2" >
+                 <div className = "card col-md-8 offset-md-2" style={{ backgroundColor: "#eee" ,alignItems:"center",boxShadow: "2px 2px 5px black"}} >
                 <h3 className = "text-center" > Orders </h3>
                 
                 
                 </div>
                 <br></br>
-                <div className="card col-md-8 offset-md-2" style={{ backgroundColor: "#eee" ,alignItems:"center"}}>
+                <div className="card col-md-8 offset-md-2" style={{ backgroundColor: "#eee" ,alignItems:"center",boxShadow: "2px 2px 5px black"}}>
                     <br></br>
                     <div className="row row-cols-4" style={{ alignItems:"center"}}>
                     {/* <div className="row row-cols-3" style={{ alignItems:"center"}}> */}
@@ -59,7 +59,7 @@ class OrderComponent extends Component {
               : this.state.Orders.map((Orders, index) => (
                   <div
                     className="card"
-                    style={{ margin: "2rem" }}
+                    style={{ margin: "2rem",boxShadow: "2px 2px 5px black" }}
                     key={Orders.id}
                   >
                     <div className="jumbotron">

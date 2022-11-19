@@ -37,15 +37,19 @@ class CategoryComponent extends Component {
     render() {
         return (
 
-            <div>
+            <div  style={{ 
+                backgroundImage: `url("https://img.freepik.com/free-vector/clean-medical-background_53876-97927.jpg?w=2000")` 
+              }}>
                  <NavBarAdmin/>
                  <br></br>
                  <br></br>
-                 <div className = "card col-md-8 offset-md-2" >
+                 <div className = "card col-md-8 offset-md-2" style={{ boxShadow: "2px 2px 5px lightblue",}} >
                 <h3 className = "text-center" > Categories </h3>
+                
                 {/* <div className="row row-cols-3" style={{ alignItems:"center"}}></div> */}
                 </div>
-                <div className="card col-md-8 offset-md-2">
+                <br></br>
+                <div className="card col-md-8 offset-md-2" style={{ boxShadow: "2px 2px 5px lightblue" }}>
                     <br></br>
                     <div className='addbutton' >
                         <Link to={'/Category'}> <button  className="btn btn-dark" style={{ marginLeft:"150px"}} >Create Category</button></Link>
@@ -55,7 +59,8 @@ class CategoryComponent extends Component {
                     {this.state.category.length === 0 ? "No Record " :
                         this.state.category.map((category, index) => (
                             <div className="col" style={{ alignContent:"center"}}>
-                            <div className="card" style={{ margin: "2rem" }} key={category.id}>
+                            <div className="card" style={{ margin: "2rem",boxShadow: "2px 2px 5px lightblue" }} key={category.id}>
+                            <img className="center" src={"/images/"+category.categoryName+".jpg"}  alt="Not found" style={{height:200,width:200,alignContent:"center",marginLeft: "30px"}}></img>
                                 <div className='jumbotron'>
                                 <div className="card-body" style={{color:"black"}} >
                                     <h5 className="card-title">{index + 1}</h5>

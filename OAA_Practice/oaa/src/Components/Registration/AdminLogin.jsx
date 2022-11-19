@@ -18,6 +18,7 @@ function Login() {
     } else {
       //navigate("/Failure");
       console.log("Something went wrong");
+      alert("Invalid credentials!")
     }
   }
   function checkIfUserIsValid() {
@@ -103,8 +104,7 @@ function Login() {
           </Link></div> */}
           <button onClick={login} className="btn btn-dark" type="submit" id="sub_btn">Login</button><br/>
                     
-                    </div>
-                    </div>
+                    </div></div>
                 
                 </div>
             </div>

@@ -74,14 +74,14 @@ function AddMedicineComponent() {
         }
         if(e.target.value === "4") {
           setMedicine({...Medicines, category: {
-              categoryId:3,
+              categoryId:4,
               categoryName: "Anti-infectives"
           }});
       }
-      if(e.target.value === "5") {
+      if(e.target.value === "7") {
         setMedicine({...Medicines, category: {
-            categoryId:3,
-            categoryName: "Homepathic Medicines"
+            categoryId:5,
+            categoryName: "Homeopathic Medicines"
         }});
     }
         
